@@ -1,0 +1,34 @@
+﻿<Window x:Class="LabWPF02.Views.ConductorListaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lista de Conductores" Height="450" Width="600"
+        WindowStartupLocation="CenterScreen">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Border Grid.Row="0" Background="{StaticResource ColorPrimario}">
+			<Grid Margin="20,0">
+				<TextBlock Text="📋 Lista de Conductores" Foreground="White" FontSize="18" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
+				<Button Width="40" Height="32" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Background="Transparent" BorderThickness="1" BorderBrush="White"
+                        Click="BtnVolver_Click">
+					<TextBlock Text="←" Foreground="White" FontSize="16" FontWeight="Bold"/>
+				</Button>
+			</Grid>
+		</Border>
+
+		<Border Grid.Row="1" Style="{StaticResource CardBorder}" Margin="20">
+			<DataGrid x:Name="dgConductores" AutoGenerateColumns="False" IsReadOnly="True" BorderThickness="0">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="🧑‍✈️ Nombre Conductor" Binding="{Binding NombreConductor}" Width="*"/>
+					<DataGridTextColumn Header="🪪 Licencia" Binding="{Binding Licencia}" Width="*"/>
+					<DataGridTextColumn Header="🚚 Transporte" Binding="{Binding Transporte}" Width="*"/>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Border>
+	</Grid>
+</Window>

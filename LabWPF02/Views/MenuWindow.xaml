@@ -1,0 +1,130 @@
+﻿<Window x:Class="LabWPF02.Views.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Menú Principal" Height="640" Width="960"
+        WindowStartupLocation="CenterScreen">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="70"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Border Grid.Row="0" Background="{StaticResource ColorPrimario}">
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0">
+				<TextBlock Text="🚛" FontSize="28" VerticalAlignment="Center" Margin="0,0,10,0"/>
+				<StackPanel VerticalAlignment="Center">
+					<TextBlock Text="Sistema de Control de Ingresos" Foreground="White" FontSize="18" FontWeight="Bold"/>
+					<TextBlock Text="Panel de administración" Foreground="#9FC9C3" FontSize="11"/>
+				</StackPanel>
+			</StackPanel>
+		</Border>
+
+		<Menu Grid.Row="1" FontSize="13" Padding="5">
+			<MenuItem Header="⚙️ Operaciones">
+				<MenuItem Header="📥 Ingresos" Click="MenuIngresos_Click"/>
+				<MenuItem Header="📤 Salida" Click="MenuSalida_Click"/>
+			</MenuItem>
+			<MenuItem Header="🛠️ Mantenimientos">
+				<MenuItem Header="🧑‍✈️ Conductores">
+					<MenuItem Header="➕ Registrar" Click="MenuConductorRegistrar_Click"/>
+					<MenuItem Header="📋 Listar" Click="MenuConductorListar_Click"/>
+				</MenuItem>
+				<MenuItem Header="🚚 Transportistas">
+					<MenuItem Header="➕ Registrar" Click="MenuTransportistaRegistrar_Click"/>
+					<MenuItem Header="📋 Listar" Click="MenuTransportistaListar_Click"/>
+				</MenuItem>
+				<MenuItem Header="🚛 Camiones">
+					<MenuItem Header="➕ Registrar" Click="MenuCamionRegistrar_Click"/>
+					<MenuItem Header="📋 Listar" Click="MenuCamionListar_Click"/>
+				</MenuItem>
+				<MenuItem Header="📦 Productos">
+					<MenuItem Header="➕ Registrar" Click="MenuProductoRegistrar_Click"/>
+					<MenuItem Header="📋 Listar" Click="MenuProductoListar_Click"/>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="📊 Reportes">
+				<MenuItem Header="🏋️ Cargas" Click="MenuReporteCargas_Click"/>
+				<MenuItem Header="📈 Ingresos" Click="MenuReporteIngresos_Click"/>
+				<MenuItem Header="📉 Salidas" Click="MenuReporteSalidas_Click"/>
+			</MenuItem>
+		</Menu>
+
+		<ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+			<StackPanel Margin="25">
+				<TextBlock Text="Bienvenido 👋" FontSize="22" FontWeight="Bold" Margin="0,0,0,15"/>
+
+				<WrapPanel>
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="📥" FontSize="26"/>
+							<TextBlock Text="Ingresos" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2"/>
+							<TextBlock x:Name="txtTotalIngresos" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="📤" FontSize="26"/>
+							<TextBlock Text="Salidas" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2"/>
+							<TextBlock x:Name="txtTotalSalidas" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="🧑‍✈️" FontSize="26"/>
+							<TextBlock Text="Conductores" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2"/>
+							<TextBlock x:Name="txtTotalConductores" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="🚚" FontSize="26"/>
+							<TextBlock Text="Transportistas" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2"/>
+							<TextBlock x:Name="txtTotalTransportistas" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="🚛" FontSize="26"/>
+							<TextBlock Text="Camiones" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2"/>
+							<TextBlock x:Name="txtTotalCamiones" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="📦" FontSize="26"/>
+							<TextBlock Text="Productos" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2"/>
+							<TextBlock x:Name="txtTotalProductos" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+
+					<Border Style="{StaticResource CardBorder}" Width="165" Margin="0,0,14,14" Padding="16">
+						<StackPanel>
+							<TextBlock Text="⚖️" FontSize="26"/>
+							<TextBlock Text="Peso Ingresado (kg)" FontSize="11" Foreground="#7F98A8" Margin="0,6,0,2" TextWrapping="Wrap"/>
+							<TextBlock x:Name="txtPesoTotal" FontSize="22" FontWeight="Bold" Foreground="{StaticResource ColorAcentoHover}"/>
+						</StackPanel>
+					</Border>
+				</WrapPanel>
+
+				<TextBlock Text="Accesos rápidos" FontSize="16" FontWeight="Bold" Margin="0,15,0,10"/>
+				<WrapPanel>
+					<Button Content="📥 Registrar Ingreso" Width="180" Height="40" Margin="0,0,10,10" Click="MenuIngresos_Click"/>
+					<Button Content="📤 Registrar Salida" Width="180" Height="40" Margin="0,0,10,10" Click="MenuSalida_Click"/>
+					<Button Content="🧑‍✈️ Nuevo Conductor" Width="180" Height="40" Margin="0,0,10,10" Click="MenuConductorRegistrar_Click"/>
+					<Button Content="🚚 Nuevo Transportista" Width="180" Height="40" Margin="0,0,10,10" Click="MenuTransportistaRegistrar_Click"/>
+					<Button Content="🚛 Nuevo Camión" Width="180" Height="40" Margin="0,0,10,10" Click="MenuCamionRegistrar_Click"/>
+					<Button Content="📦 Nuevo Producto" Width="180" Height="40" Margin="0,0,10,10" Click="MenuProductoRegistrar_Click"/>
+					<Button Content="📈 Reporte Ingresos" Width="180" Height="40" Margin="0,0,10,10" Click="MenuReporteIngresos_Click"/>
+					<Button Content="📉 Reporte Salidas" Width="180" Height="40" Margin="0,0,10,10" Click="MenuReporteSalidas_Click"/>
+					<Button Content="🏋️ Reporte Cargas" Width="180" Height="40" Margin="0,0,10,10" Click="MenuReporteCargas_Click"/>
+				</WrapPanel>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</Window>
